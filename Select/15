@@ -1,0 +1,54 @@
+<?php
+    include("conexao.php");
+
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    
+    if(isset($_POST['bt_senha'])){ 
+        var_dump($_POST['bt_senha']);
+
+        $senha = $_POST['bt_senha'];
+        $rsenha = $_POST['bt_rsenha']; 
+
+        $_SESSION["bt_name"] = $_POST['bt_senha'];
+
+        if (isset($senha)){
+            
+            if($senha === $rsenha){
+                /* Só vai executar os códigos abaixo
+                se for VERDADEIRO. */ 
+        
+                $senha = password_hash($_POST['bt_senha'], PASSWORD_DEFAULT);
+                //$senha = md5($_POST['bt_senha']);
+
+
+                $nome = $_POST['bt_nome'];
+                $email = $_POST['bt_email'];
+                $rsenha = $_POST['bt_rsenha'];
+                
+    
+                 $mysqli->query("INSERT INTO login1 (nome, email, senha, rsenha) values('$nome','$email','$senha','$rsenha')") or
+                    die($mysqlierrno);
+                
+                
+                //header("login.php");  //Mudar de página 
+                
+        
+            }else{
+                
+                /* else é o senão */
+                /* Quando for falso executar os códigos
+                abaixo: */
+                $mensagem = "<div class='alert alert-danger mt-3'> Senha inválida </div>";
+                
+            }
+        }
+    }
+    
+    
+    
+    
+   
+?>

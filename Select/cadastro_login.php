@@ -40,7 +40,7 @@
                     die($mysqlierrno);
                 
                 
-                //header("Location:banco.php"); /* Mudar de página */
+                header("location:login.php");  //Mudar de página 
                 
         
             }else{
@@ -75,20 +75,28 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Define a cor do texto do label */
+        label {
+            color: white; /* Troca a cor para azul */
+        }
+    </style>
+
 </head>
 
 <body>
     <div class="container">
         <form class="form mt-5" method="post">
             <label for="">Nome:</label>
-            <input type="text" class="input" placeholder="nome" name="bt_nome">
+            <input type="text" class="input" placeholder="nome" name="bt_nome" required>;
             <label for="">Email:</label>
-            <input type="text" class="input" placeholder="email" name="bt_email">
+            <input type="text" class="input" placeholder="email" name="bt_email" required>;
             <label for="">Senha:</label>
-            <input type="text" class="input" placeholder="senha" name="bt_senha">
+            <input type="text" class="input" placeholder="senha" name="bt_senha" required>;
             <label for="">Repita sua senha:</label>
-            <input type="text" class="input" placeholder="rsenha" name="bt_rsenha">
+            <input type="text" class="input" placeholder="repita a senha" name="bt_rsenha" required>;
             <button>cadastrar</button>
+            <p class="signin">Já tem uma conta ? <a href="login.php">Entrar</a> </p>
         </form>
     </div>
 </body>
